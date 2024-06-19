@@ -1,13 +1,19 @@
 import typographyPlugin from '@tailwindcss/typography'
 import { type Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 import typographyStyles from './typography'
 
 export default {
-  content: ['./app/**/*.{js,jsx,ts,tsx}','./components/**/*.{js,jsx,ts,tsx}'],
+  content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'selector',
   plugins: [typographyPlugin],
   theme: {
+    fontFamily: {
+      sans: ['var(--font-sans)', ...fontFamily.sans],
+      heading: ['var(--font-heading)', ...fontFamily.sans],
+      mono: ['var(--font-mono)', ...fontFamily.mono],
+    },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],

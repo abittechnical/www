@@ -13,7 +13,7 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default props => <ArticleLayout article={article} {...props} />
 
 When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.
 
@@ -24,12 +24,7 @@ import { animate } from '@planetaria/animaginary'
 
 export function MyComponent({ open, children }) {
   return (
-    <animate.div
-      in={open}
-      animateFrom="opacity-0 scale-95"
-      animateTo="opacity-100 scale-100"
-      duration={350}
-    >
+    <animate.div in={open} animateFrom="opacity-0 scale-95" animateTo="opacity-100 scale-100" duration={350}>
       {children}
     </animate.div>
   )

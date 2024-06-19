@@ -31,8 +31,8 @@ export async function GET(req: Request) {
   let articleIds = require
     .context('../articles', true, /\/page\.mdx$/)
     .keys()
-    .filter((key) => key.startsWith('./'))
-    .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''))
+    .filter(key => key.startsWith('./'))
+    .map(key => key.slice(2).replace(/\/page\.mdx$/, ''))
 
   for (let id of articleIds) {
     let url = String(new URL(`/articles/${id}`, req.url))
