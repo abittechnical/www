@@ -1,4 +1,4 @@
-# A Bit Technical
+# Bitwhys Portfolio
 
 ## TODO
 
