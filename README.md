@@ -20,7 +20,7 @@
 - [ ] add radix-ui colors
 
 ### Deployment
-- [ ] deploy to vercel
+- [x] deploy to vercel
 
 ### Content
 - [ ] Use JSON schema for article (SEO)
