@@ -15,19 +15,16 @@
 - [x] Add eslint-plugin-tailwindcss
 
 ### Styling
-
-- [ ] add fonts (Visby CF x Guminert x Fira Code)
+- [x] add branded avatar to navbar
+- [x] add fonts (Visby CF x Guminert x JetBrains Mono)
 - [ ] add radix-ui colors
-- [ ] Use JSON schema for article (SEO)
-- [ ] Convert sample articles to markdown
 
 ### Deployment
-
 - [ ] deploy to vercel
 
 ### Content
-
-- [ ] add branded avatar to navbar
+- [ ] Use JSON schema for article (SEO)
+- [ ] Convert sample articles to markdown
 - [ ] add contentlayer
 - [ ] create downloadable resume
 - [ ] swap newsletter for featured freebie/offer
