@@ -31,6 +31,9 @@ export default {
     },
     typography: typographyStyles,
     extend: {
+      borderColor: {
+        separator: 'var(--olive-4)',
+      },
       colors: {
       },
       textColor: {
