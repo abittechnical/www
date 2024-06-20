@@ -121,7 +121,7 @@ function Newsletter() {
           required
           className={cx("min-w-0 flex-auto appearance-none rounded-md border border-interactive bg-[--white-a12] px-3",
             "py-[calc(theme(spacing.2)-1px)] shadow-md shadow-[--olive-a4] placeholder:text-hint",
-            "focus:border-[--lime-9] focus:outline-none focus:ring-4 focus:ring-[--lime-a5] sm:text-sm dark:bg-[--olive-1]")} />
+            "focus:border-[--lime-9] focus:outline-none focus:ring-4 focus:ring-[--lime-a5] sm:text-sm dark:bg-[--olive-1] dark:shadow-none")} />
         <Button type="submit" className="ml-4 flex-none">
           Join
         </Button>
