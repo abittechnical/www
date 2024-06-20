@@ -105,7 +105,7 @@ function SocialLink({
 
 function Newsletter() {
   return (
-    <form action="/thank-you" className="-rotate-1 rounded-2xl border border-[--olive-6] p-6">
+    <form action="/thank-you" className="-rotate-1 rounded-2xl border border-inert p-6">
       <h2 className="flex text-sm font-semibold text-heading">
         <MailIcon className="size-6 flex-none" />
         <span className="ml-3">Stay up to date</span>
@@ -119,8 +119,8 @@ function Newsletter() {
           placeholder="Email address"
           aria-label="Email address"
           required
-          className={cx("min-w-0 flex-auto appearance-none rounded-md border border-[--olive-a7] bg-[--white-a12] px-3",
-            "py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-[--olive-9]",
+          className={cx("min-w-0 flex-auto appearance-none rounded-md border border-interactive bg-[--white-a12] px-3",
+            "py-[calc(theme(spacing.2)-1px)] shadow-md shadow-[--olive-a4] placeholder:text-hint",
             "focus:border-[--lime-9] focus:outline-none focus:ring-4 focus:ring-[--lime-a5] sm:text-sm dark:bg-[--olive-1]")} />
         <Button type="submit" className="ml-4 flex-none">
           Join
@@ -201,7 +201,7 @@ function Resume() {
   ]
 
   return (
-    <div className="rotate-1 rounded-2xl border border-[--olive-6] p-6">
+    <div className="rotate-1 rounded-2xl border border-inert p-6">
       <h2 className="flex text-sm font-semibold text-heading">
         <BriefcaseIcon className="size-6 flex-none" />
         <span className="ml-3">Work</span>

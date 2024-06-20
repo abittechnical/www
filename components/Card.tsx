@@ -25,7 +25,7 @@ export function Card<T extends React.ElementType = 'div'>({
 Card.Link = function CardLink({ children, ...props }: React.ComponentPropsWithoutRef<typeof Link>) {
   return (
     <>
-      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-[--olive-2] opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-surface opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl" />
       <Link {...props}>
         <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
@@ -52,12 +52,12 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
 }
 
 Card.Description = function CardDescription({ children }: { children: React.ReactNode }) {
-  return <p className="relative z-10 mt-2 text-sm text-[--olive-10]">{children}</p>
+  return <p className="relative z-10 mt-2 text-sm text-muted">{children}</p>
 }
 
 Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
   return (
-    <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-[--lime-10] text-sm font-medium dark:text-[--lime-11]">
+    <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-branded-light text-sm font-medium dark:text-branded-dark">
       {children}
       <ChevronRightIcon className="ml-1 size-4 stroke-current" />
     </div>
@@ -80,7 +80,7 @@ Card.Eyebrow = function CardEyebrow<T extends React.ElementType = 'p'>({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-[--olive-9]',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-hint',
         decorate && 'pl-3.5',
       )}
       {...props}

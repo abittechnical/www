@@ -33,12 +33,28 @@ export default {
     extend: {
       borderColor: {
         separator: 'var(--olive-4)',
+        inert: 'var(--olive-6)',
+        interactive: 'var(--olive-a7)',
+        'interactive-hover': 'var(--olive-7)',
+      },
+      backgroundColor: {
+        surface: 'var(--olive-2)',
+        paper: 'var(--paper)',
+        page: 'var(--page)',
       },
       colors: {
       },
+      ringColor: {
+        separator: 'var(--olive-4)',
+      },
+
       textColor: {
         heading: 'var(--olive-12)',
         body: 'var(--olive-11)',
+        'branded-light': 'var(--lime-10)',
+        'branded-dark': 'var(--lime-11)',
+        muted: 'var(--olive-10)',
+        hint: 'var(--olive-9)',
       }
     }
   },

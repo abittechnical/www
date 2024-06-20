@@ -13,3 +13,14 @@
 @import 'tailwindcss/components';
 @import './prism.css';
 @import 'tailwindcss/utilities';
+
+@layer base {
+  :root{
+    --paper: var(--white-a12);
+    --page: var(--olive-2);
+  }
+  .dark {
+    --paper: var(--olive-1);
+    --page: var(--black-a12);
+  }
+}
