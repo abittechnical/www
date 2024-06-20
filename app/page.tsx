@@ -17,6 +17,7 @@ import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import {cx} from "@/lib/utils";
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -29,11 +30,13 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
       aria-hidden="true"
       {...props}
     >
+      {/* Envelope body */}
       <path
         d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+        className="fill-[--olive-a3] stroke-[--olive-a8]"
       />
-      <path d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6" className="stroke-zinc-400 dark:stroke-zinc-500" />
+      {/* Envelope fold/flap */}
+      <path d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6" className="stroke-[--olive-a8]" />
     </svg>
   )
 }
@@ -51,11 +54,11 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     >
       <path
         d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+        className="fill-[--olive-a3] stroke-[--olive-a8]"
       />
       <path
         d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
+        className="stroke-[--olive-a8]"
       />
     </svg>
   )
@@ -102,12 +105,12 @@ function SocialLink({
 
 function Newsletter() {
   return (
-    <form action="/thank-you" className="-rotate-1 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+    <form action="/thank-you" className="-rotate-1 rounded-2xl border border-[--olive-6] p-6">
+      <h2 className="flex text-sm font-semibold text-heading">
         <MailIcon className="size-6 flex-none" />
         <span className="ml-3">Stay up to date</span>
       </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="mt-2 text-sm">
         Get notified when I publish something new, and unsubscribe at any time.
       </p>
       <div className="mt-6 flex">
@@ -116,8 +119,9 @@ function Newsletter() {
           placeholder="Email address"
           aria-label="Email address"
           required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10"
-        />
+          className={cx("min-w-0 flex-auto appearance-none rounded-md border border-[--olive-a7] bg-[--white-a12] px-3",
+            "py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-[--olive-9]",
+            "focus:border-[--lime-9] focus:outline-none focus:ring-4 focus:ring-[--lime-a5] sm:text-sm dark:bg-[--olive-1]")} />
         <Button type="submit" className="ml-4 flex-none">
           Join
         </Button>
@@ -143,16 +147,16 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex size-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+      <div className="relative mt-1 flex size-10 flex-none items-center justify-center rounded-full shadow-md shadow-[--olive-a5] dark:shadow-none ring-1 ring-[--olive-4] dark:ring-[--olive-5] dark:bg-[--olive-3]">
         <Image src={role.logo} alt="" className="size-7" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">{role.company}</dd>
+        <dd className="w-full flex-none text-sm font-medium text-heading">{role.company}</dd>
         <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">{role.title}</dd>
+        <dd className="text-xs">{role.title}</dd>
         <dt className="sr-only">Date</dt>
-        <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500" aria-label={`${startLabel} until ${endLabel}`}>
+        <dd className="ml-auto text-xs" aria-label={`${startLabel} until ${endLabel}`}>
           <time dateTime={startDate}>{startLabel}</time> <span aria-hidden="true">—</span>{' '}
           <time dateTime={endDate}>{endLabel}</time>
         </dd>
@@ -197,8 +201,8 @@ function Resume() {
   ]
 
   return (
-    <div className="rotate-1 rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+    <div className="rotate-1 rounded-2xl border border-[--olive-6] p-6">
+      <h2 className="flex text-sm font-semibold text-heading">
         <BriefcaseIcon className="size-6 flex-none" />
         <span className="ml-3">Work</span>
       </h2>
@@ -249,10 +253,10 @@ export default async function Home() {
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
-          <h1 className="font-heading text-4xl font-medium tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+          <h1 className="font-heading text-4xl font-medium tracking-tight text-heading sm:text-5xl">
             Software designer, founder, and amateur astronaut.
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 text-base">
             I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of
             Planetaria, where we develop technologies that empower regular people to explore space on their own terms.
           </p>
