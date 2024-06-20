@@ -57,7 +57,7 @@ Card.Description = function CardDescription({ children }: { children: React.Reac
 
 Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
   return (
-    <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-branded-light text-sm font-medium dark:text-branded-dark">
+    <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-sm font-medium text-branded-light dark:text-branded-dark">
       {children}
       <ChevronRightIcon className="ml-1 size-4 stroke-current" />
     </div>

@@ -147,7 +147,7 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex size-10 flex-none items-center justify-center rounded-full shadow-md shadow-[--olive-a5] dark:shadow-none ring-1 ring-[--olive-4] dark:ring-[--olive-5] dark:bg-[--olive-3]">
+      <div className="relative mt-1 flex size-10 flex-none items-center justify-center rounded-full  shadow-md ring-1 ring-[--olive-4] [--tw-shadow-color:var(--olive-a5)] dark:bg-[--olive-3] dark:shadow-none dark:ring-[--olive-5]">
         <Image src={role.logo} alt="" className="size-7" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">

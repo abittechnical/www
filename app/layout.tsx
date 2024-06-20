@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={cx('h-full', headingFont.variable, sansFont.variable, monoFont.variable)}
       suppressHydrationWarning
     >
-      <body className="flex h-full bg-page antialiased text-body">
+      <body className="flex h-full bg-page text-body antialiased">
         <Providers>
           <div className="flex w-full">
             <Layout>{children}</Layout>
