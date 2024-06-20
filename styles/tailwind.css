@@ -1,3 +1,14 @@
+@import '@radix-ui/colors/olive.css';
+@import '@radix-ui/colors/olive-alpha.css';
+@import '@radix-ui/colors/olive-dark.css';
+@import '@radix-ui/colors/olive-dark-alpha.css';
+@import '@radix-ui/colors/lime.css';
+@import '@radix-ui/colors/lime-alpha.css';
+@import '@radix-ui/colors/lime-dark.css';
+@import '@radix-ui/colors/lime-dark-alpha.css';
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/white-alpha.css';
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import './prism.css';

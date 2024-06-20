@@ -30,5 +30,13 @@ export default {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     typography: typographyStyles,
+    extend: {
+      colors: {
+      },
+      textColor: {
+        heading: 'var(--olive-12)',
+        body: 'var(--olive-11)',
+      }
+    }
   },
 } satisfies Config
