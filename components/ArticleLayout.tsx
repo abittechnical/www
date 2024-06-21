@@ -30,6 +30,7 @@ export function ArticleLayout({ article, children }: { article: ArticleWithSlug;
     <Container className="mt-16 lg:mt-32">
       <div className="xl:relative">
         <div className="mx-auto max-w-2xl">
+          {/*TODO: make this a client component & make this a layout component */}
           {previousPathname && (
             <button
               type="button"
