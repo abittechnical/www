@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef, ComponentType } from 'react'
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
@@ -15,12 +16,11 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
-import { type Article } from 'contentlayer/generated'
-import { allArticles as articles } from 'contentlayer/generated'
+import { allArticles, type Article } from 'contentlayer/generated'
 import { cx } from '@/lib/utils'
-import { format } from 'date-fns'
+import { formatDate } from '@/lib/formatDate'
 
-function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function MailIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function BriefcaseIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function ArrowDownIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -83,7 +83,7 @@ function Article({ article }: { article: Article }) {
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>{article.title}</Card.Title>
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {format(article.date, 'MMMM d, yyyy')}
+        {formatDate(article.date)}
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
@@ -94,8 +94,8 @@ function Article({ article }: { article: Article }) {
 function SocialLink({
   icon: Icon,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
-  icon: React.ComponentType<{ className?: string }>
+}: ComponentPropsWithoutRef<typeof Link> & {
+  icon: ComponentType<{ className?: string }>
 }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
@@ -272,7 +272,7 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articles.map(article => (
+            {allArticles.map(article => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
