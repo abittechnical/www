@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef, ComponentType } from 'react'
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
@@ -15,11 +16,11 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
-import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
+import { allArticles, type Article } from 'contentlayer/generated'
+import { cx } from '@/lib/utils'
 import { formatDate } from '@/lib/formatDate'
-import {cx} from "@/lib/utils";
 
-function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function MailIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -41,7 +42,7 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function BriefcaseIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -64,7 +65,7 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function ArrowDownIcon(props: ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -77,7 +78,7 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function Article({ article }: { article: ArticleWithSlug }) {
+function Article({ article }: { article: Article }) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>{article.title}</Card.Title>
@@ -93,8 +94,8 @@ function Article({ article }: { article: ArticleWithSlug }) {
 function SocialLink({
   icon: Icon,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
-  icon: React.ComponentType<{ className?: string }>
+}: ComponentPropsWithoutRef<typeof Link> & {
+  icon: ComponentType<{ className?: string }>
 }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
@@ -110,18 +111,19 @@ function Newsletter() {
         <MailIcon className="size-6 flex-none" />
         <span className="ml-3">Stay up to date</span>
       </h2>
-      <p className="mt-2 text-sm">
-        Get notified when I publish something new, and unsubscribe at any time.
-      </p>
+      <p className="mt-2 text-sm">Get notified when I publish something new, and unsubscribe at any time.</p>
       <div className="mt-6 flex">
         <input
           type="email"
           placeholder="Email address"
           aria-label="Email address"
           required
-          className={cx("min-w-0 flex-auto appearance-none rounded-md border border-interactive bg-[--white-a12] px-3",
-            "py-[calc(theme(spacing.2)-1px)] shadow-md shadow-[--olive-a4] placeholder:text-hint",
-            "focus:border-[--lime-9] focus:outline-none focus:ring-4 focus:ring-[--lime-a5] sm:text-sm dark:bg-[--olive-1] dark:shadow-none")} />
+          className={cx(
+            'min-w-0 flex-auto appearance-none rounded-md border border-interactive bg-[--white-a12] px-3',
+            'py-[calc(theme(spacing.2)-1px)] shadow-md shadow-[--olive-a4] placeholder:text-hint',
+            'focus:border-[--lime-9] focus:outline-none focus:ring-4 focus:ring-[--lime-a5] sm:text-sm dark:bg-[--olive-1] dark:shadow-none',
+          )}
+        />
         <Button type="submit" className="ml-4 flex-none">
           Join
         </Button>
@@ -246,9 +248,8 @@ function Photos() {
   )
 }
 
-export default async function Home() {
-  let articles = (await getAllArticles()).slice(0, 4)
-
+export default async function HomePage() {
+  // console.log(allArticles)
   return (
     <>
       <Container className="mt-9">
@@ -272,7 +273,7 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articles.map(article => (
+            {allArticles.map(article => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
