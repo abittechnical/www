@@ -1,5 +1,17 @@
-import clsx from 'clsx'
+'use client'
+import { cx } from '@/lib/utils'
+import Image from 'next/image'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
-export function Prose({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  return <div className={clsx(className, 'prose dark:prose-invert prose-headings:font-heading')} {...props} />
+const components = {
+  Image,
+}
+
+export function Prose({ className, content }: { className?: string; content: string }) {
+  const MdxContent = useMDXComponent(content)
+  return (
+    <div className={cx(className, 'prose dark:prose-invert prose-headings:font-heading')}>
+      <MdxContent components={components} />
+    </div>
+  )
 }
