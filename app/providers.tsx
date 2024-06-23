@@ -1,5 +1,5 @@
 'use client'
-
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { createContext, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { ThemeProvider, useTheme } from 'next-themes'
@@ -47,6 +47,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <AppContext.Provider value={{ previousPathname }}>
       <ThemeProvider attribute="class" disableTransitionOnChange>
+        <SpeedInsights />
         <ThemeWatcher />
         {children}
       </ThemeProvider>
