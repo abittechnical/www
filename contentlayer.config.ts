@@ -1,7 +1,19 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource, type ComputedFields } from 'contentlayer/source-files'
+import { slugify } from './lib/slugify'
+import type { Article as ArticleType } from './.contentlayer/generated'
 // import rehypePrism from '@mapbox/rehype-prism'
 // import remarkGfm from 'remark-gfm'
 
+const computedFields: ComputedFields = {
+  slug: {
+    type: 'string',
+    resolve: doc => slugify(doc),
+  },
+  slugAsParams: {
+    type: 'string',
+    resolve: doc => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+  },
+}
 export const Article = defineDocumentType(() => ({
   name: 'Article',
   // matches all `.mdx` files in the `articles` directory
@@ -14,9 +26,7 @@ export const Article = defineDocumentType(() => ({
     date: { type: 'date', required: true },
     description: { type: 'string', required: true },
   },
-  computedFields: {
-    slug: { type: 'string', resolve: post => `/articles/${post._raw.flattenedPath}` },
-  },
+  computedFields,
 }))
 
 export default makeSource({

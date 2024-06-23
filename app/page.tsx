@@ -248,7 +248,8 @@ function Photos() {
   )
 }
 
-export default async function Home() {
+export default async function HomePage() {
+  // console.log(allArticles)
   return (
     <>
       <Container className="mt-9">

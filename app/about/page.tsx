@@ -62,9 +62,11 @@ export default function About() {
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
+          {/* title */}
           <h1 className="font-heading text-4xl font-medium tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             I’m Spencer Sharp. I live in New York City, where I design the future.
           </h1>
+          {/* body */}
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
               I’ve loved making things for as long as I can remember, and wrote my first program when I was 6 years old,
@@ -87,6 +89,12 @@ export default function About() {
             </p>
           </div>
         </div>
+        {/** TODO: make this data in some fashion
+              SocialLink:
+                - href: string
+                - icon: React.ComponentType<{ className?: string }>
+                - children: React.ReactNode
+         */}
         <div className="lg:pl-20">
           <ul role="list">
             <SocialLink href="#" icon={XIcon}>
