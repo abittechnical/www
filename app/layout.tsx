@@ -1,6 +1,9 @@
+import { ThemeProvider } from "#layout/theme-provider";
+import { SiteHeader } from "@/components/layout/site-header";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +26,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          `${geistSans.variable} ${geistMono.variable} antialiased`,
+        )}
       >
-        {children}
+        <ThemeProvider>
+          <div className="isolate">
+            <div className="max-w-screen overflow-x-hidden">
+              {/* Site Header here */}
+              <SiteHeader />
+              <div className="[--gutter-width:2.5rem] grid grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] justify-center lg:mx-0 md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] min-h-dvh pt-14.25">
+                <div className="col-start-1 row-span-full row-start-1 hidden border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:block dark:[--pattern-fg:var(--color-white)]/10"></div>
+                {children}
+                <div class="row-span-full row-start-1 hidden border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:col-start-3 sm:block dark:[--pattern-fg:var(--color-white)]/10"></div>
+              </div>
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

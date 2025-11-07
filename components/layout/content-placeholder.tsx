@@ -1,0 +1,36 @@
+import { cn } from "@/lib/utils";
+
+export function ContentPlaceholder({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "relative h-full overflow-hidden rounded bg-gray-50 dark:bg-gray-800",
+        className,
+      )}
+    >
+      <svg
+        className="absolute inset-0 h-full w-full stroke-gray-200 dark:stroke-gray-700"
+        fill="none"
+      >
+        <defs>
+          <pattern
+            id="pattern-3"
+            x="0"
+            y="0"
+            width="10"
+            height="10"
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+          </pattern>
+        </defs>
+        <rect
+          stroke="none"
+          fill="url(#pattern-3)"
+          width="100%"
+          height="100%"
+        ></rect>
+      </svg>
+    </div>
+  );
+}
